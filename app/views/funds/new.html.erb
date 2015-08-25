@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @fund.errors.any? %>
+  <% @fund.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Fund</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_fund" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for group_id -->
+      <div class="form-group">
+        <label for="group_id" class="control-label">
+          Group
+        </label>
+
+        <input type="text" id="group_id" name="group_id" placeholder="Group" class="form-control" value="<%= @fund.group_id %>">
+      </div>
+
+      <!-- Label and input for score -->
+      <div class="form-group">
+        <label for="score" class="control-label">
+          Score
+        </label>
+
+        <input type="text" id="score" name="score" placeholder="Score" class="form-control" value="<%= @fund.score %>">
+      </div>
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @fund.name %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Fund
+      </button>
+      or
+      <a href="/funds">Cancel</a>
+    </form>
+  </div>
+</div>
