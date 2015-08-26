@@ -1,19 +1,42 @@
 <div class="page-header">
-  <h3>Fund #<%= @fund.id %></h3>
+  <h2><%= @fund.name %></h2>
 </div>
 
 <div class="row">
   <div class="col-md-12">
     <dl class="dl-horizontal">
-      <dt>Group</dt>
-      <dd><%= @fund.group_id %></dd>
-
-      <dt>Score</dt>
+      <dt>Active Share</dt>
       <dd><%= @fund.score %></dd>
 
-      <dt>Name</dt>
-      <dd><%= @fund.name %></dd>
+      <dt>Group</dt>
+      <dd><%= @fund.group.name %></dd>
 
+      <dt>Ticker</dt>
+      <dd><%= @fund.ticker %></dd>
+
+      <dt>Inception Date</dt>
+      <dd><%= @fund.inception_date %></dd>
+
+      <dt>Portfolio Date</dt>
+      <dd><%= @fund.portfolio_date %></dd>
+
+      <dt>Equity Percentage</dt>
+      <dd><%= @fund.equity_percentage %></dd>
+
+      <dt>Holdings</dt>
+      <dd><%= @fund.holdings %></dd>
+
+   <!-- Label and input for notes -->
+    <div class="form-group">
+      <label for="notes" class="control-label">
+        My Notes
+      </label>
+      <textarea id="notes" name="notes" placeholder="Notes" class="form-control" rows="3"><%= @fund.notes %></textarea>
+    </div>
+
+    <button class="btn btn-success">
+      My Favorites
+    </button>
     </dl>
 
     <div class="btn-group btn-group-justified">

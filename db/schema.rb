@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150825212512) do
+ActiveRecord::Schema.define(version: 20150826015210) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer  "user_id"
@@ -26,12 +26,26 @@ ActiveRecord::Schema.define(version: 20150825212512) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "ticker"
+    t.date     "inception_date"
+    t.date     "portfolio_date"
+    t.float    "equity_percentage"
+    t.text     "notes"
+    t.integer  "holdings"
   end
 
   create_table "groups", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "mean"
+    t.float    "median"
+    t.float    "std_dev"
+    t.float    "five"
+    t.float    "twentyfive"
+    t.float    "fifty"
+    t.float    "seventyfive"
+    t.float    "ninetyfive"
   end
 
   create_table "users", force: :cascade do |t|

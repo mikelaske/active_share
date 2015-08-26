@@ -18,13 +18,21 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @fund.name %>">
+      </div>
+
       <!-- Label and input for group_id -->
       <div class="form-group">
         <label for="group_id" class="control-label">
           Group
         </label>
 
-        <input type="text" id="group_id" name="group_id" placeholder="Group" class="form-control" value="<%= @fund.group_id %>">
+        <%= select_tag(:group_id, options_from_collection_for_select(Group.all, :id, :name, @fund.group_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for score -->
@@ -36,16 +44,7 @@
         <input type="text" id="score" name="score" placeholder="Score" class="form-control" value="<%= @fund.score %>">
       </div>
 
-      <!-- Label and input for name -->
-      <div class="form-group">
-        <label for="name" class="control-label">
-          Name
-        </label>
-
-        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @fund.name %>">
-      </div>
-
-      <button class="btn btn-warning">
+      <button class="btn btn-success">
         Update Fund
       </button>
       or

@@ -9,17 +9,17 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
+        <th>Name</th>
         <th>Group</th>
         <th>Score</th>
-        <th>Name</th>
         <th>Actions</th>
       </tr>
 
       <% @funds.each do |fund| %>
       <tr>
-        <td><%= fund.group_id %></td>
-        <td><%= fund.score %></td>
         <td><%= fund.name %></td>
+        <td><%= fund.group.name %></td>
+        <td><%= fund.score %></td>
         <td>
           <a href="/funds/<%= fund.id %>" class="btn btn-primary">Show</a>
           <a href="/funds/<%= fund.id %>/edit" class="btn btn-warning">Edit</a>

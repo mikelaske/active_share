@@ -1,13 +1,46 @@
 <div class="page-header">
-  <h3>Group #<%= @group.id %></h3>
+  <h2><%= @group.name %></h2>
 </div>
 
 <div class="row">
   <div class="col-md-12">
     <dl class="dl-horizontal">
-      <dt>Name</dt>
-      <dd><%= @group.name %></dd>
+      <dt>Average</dt>
+      <dd><%= @group.mean %></dd>
 
+      <dt>Median</dt>
+      <dd><%= @group.median %></dd>
+
+      <dt>Standard Deviation</dt>
+      <dd><%= @group.std_dev %></dd>
+
+      <dt>5th Percentile</dt>
+      <dd><%= @group.five %></dd>
+
+      <dt>25th Percentile</dt>
+      <dd><%= @group.twentyfive %></dd>
+
+      <dt>50th Percentile</dt>
+      <dd><%= @group.fifty %></dd>
+
+      <dt>75th Percentile</dt>
+      <dd><%= @group.seventyfive %></dd>
+
+      <dt>95th Percentile</dt>
+      <dd><%= @group.ninetyfive %></dd>
+
+
+
+      <dt>Funds</dt>
+      <dd>
+        <ol class="list-group">
+        <% Fund.where(:group_id => @group.id).each do |fund| %>
+          <li class="list-group-item">
+            <%= fund.name %>:  <%= fund.score %>
+          </li>
+        <% end %>
+        </ol>
+      </dd>
     </dl>
 
     <div class="btn-group btn-group-justified">

@@ -13,7 +13,14 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new
-    @group.name = params[:name]
+    @group.ninetyfive = params[:ninetyfive]
+    @group.seventyfive = params[:seventyfive]
+    @group.fifty = params[:fifty]
+    @group.twentyfive = params[:twentyfive]
+    @group.five = params[:five]
+    @group.std_dev = params[:std_dev]
+    @group.median = params[:median]
+    @group.mean = params[:mean]
 
     if @group.save
       redirect_to "/groups", :notice => "Group created successfully."
@@ -29,7 +36,14 @@ class GroupsController < ApplicationController
   def update
     @group = Group.find(params[:id])
 
-    @group.name = params[:name]
+    @group.ninetyfive = params[:ninetyfive]
+    @group.seventyfive = params[:seventyfive]
+    @group.fifty = params[:fifty]
+    @group.twentyfive = params[:twentyfive]
+    @group.five = params[:five]
+    @group.std_dev = params[:std_dev]
+    @group.median = params[:median]
+    @group.mean = params[:mean]
 
     if @group.save
       redirect_to "/groups", :notice => "Group updated successfully."

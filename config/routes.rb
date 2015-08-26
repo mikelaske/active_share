@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "/", :controller => "groups", :action => "index"
+
   # Routes for the Fund resource:
   # CREATE
   get "/funds/new", :controller => "funds", :action => "new"
