@@ -1,10 +1,12 @@
 class FundsController < ApplicationController
   def index
-    @funds = Fund.all
+    @q = Fund.ransack(params[:q])
+    @funds = @q.result
   end
 
   def show
     @fund = Fund.find(params[:id])
+    @fund.notes = params[:notes]
   end
 
   def new
@@ -16,6 +18,7 @@ class FundsController < ApplicationController
     @fund.group_id = params[:group_id]
     @fund.score = params[:score]
     @fund.name = params[:name]
+    @fund.notes = params[:notes]
 
     if @fund.save
       redirect_to "/funds", :notice => "Fund created successfully."

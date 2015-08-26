@@ -4,4 +4,6 @@ class Fund < ActiveRecord::Base
 
     belongs_to :group
     has_many :favorites
+
+    mount_uploader :note, NoteUploader
 end

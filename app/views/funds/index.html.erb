@@ -5,6 +5,30 @@
   </h1>
 </div>
 
+<%= search_form_for @q do |f| %>
+  <p class="lead">Narrow the list:</p>
+
+  <div class="form-group">
+    <%= f.label :name_cont, "Fund Names" %>
+    <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Name containing" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :score_gteq, "Active share greater than or equal to:" %>
+    <%= f.text_field :score_gteq, :class => "form-control", :placeholder => "Enter value" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :score_lteq, "Active share less than or equal to:" %>
+    <%= f.text_field :score_lteq, :class => "form-control", :placeholder => "Enter value" %>
+  </div>
+
+  <%= f.submit :class => "btn btn-primary btn-block" %>
+
+  <a href="/funds" class="btn btn-default btn-block">Clear filters</a>
+<% end %>
+
+
 <table id="funds">
   <thead>
     <tr>
@@ -23,3 +47,6 @@
   <% end %>
   </tbody>
 </table>
+
+
+

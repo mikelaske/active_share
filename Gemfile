@@ -2,6 +2,12 @@ source 'http://rubygems.org'
 gem 'starter_generators', :git => "http://github.com/rbetina/starter_generators.git"
 gem 'devise', :git => "https://github.com/plataformatec/devise"
 
+gem 'activeadmin', '~> 1.0.0.pre1'
+
+gem 'ransack'
+
+gem 'carrierwave'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 # Use sqlite3 as the database for Active Record

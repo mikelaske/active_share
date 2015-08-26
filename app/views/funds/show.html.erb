@@ -28,11 +28,31 @@
 
    <!-- Label and input for notes -->
     <div class="form-group">
+
       <label for="notes" class="control-label">
         My Notes
       </label>
+
       <textarea id="notes" name="notes" placeholder="Notes" class="form-control" rows="3"><%= @fund.notes %></textarea>
     </div>
+
+      <!-- Upload notes -->
+      <div class="form-group">
+
+      <form action="/create_user" method="post" class="form-horizontal" enctype="multipart/form-data">
+        <label for="notes" class="control-label">
+          My Notes
+        </label>
+
+      <div class="col-sm-18">
+        <input id="notes" input name="notes" type="file" class="form-control">
+      </div>
+      </form>
+     </div>
+
+
+
+
 
     <button class="btn btn-success">
       My Favorites
