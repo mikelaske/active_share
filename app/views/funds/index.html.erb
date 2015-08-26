@@ -1,9 +1,18 @@
 <div class="page-header">
   <h1>
     Funds
-    <a href="/funds/new" class="btn btn-lg btn-success">New Fund</a>
   </h1>
 </div>
+
+      <!-- Group Selection -->
+      <div class="form-group">
+        <label for="group_id" class="col-sm-2 control-label">
+          Group
+        </label>
+        <div class="col-sm-10">
+        <%= select_tag(:group_id, options_from_collection_for_select(Group.all, :id, :name, @group.group_id), :class => "form-control") %>
+        </div>
+      </div>
 
 <%= search_form_for @q do |f| %>
   <p class="lead">Narrow the list:</p>
@@ -29,20 +38,18 @@
 <% end %>
 
 
-<table id="funds">
+<table id="funds" class="table table-condensed">
   <thead>
     <tr>
       <th>Name</th>
       <th>Active Share</th>
-      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
     <% @funds.each do |fund| %>
     <tr>
-      <td><%= fund.name %></td>
+      <td><a href="/funds/<%= fund.id %>"><%= fund.name %></a></td>
       <td><%= fund.score %></td>
-      <td><a href="/funds/<%= fund.id %>" class="btn btn-primary">Details</a></td>
     </tr>
   <% end %>
   </tbody>

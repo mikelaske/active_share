@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  get "/", :controller => "groups", :action => "index"
+
+  root 'groups#index'
 
   # Routes for the Fund resource:
   # CREATE
