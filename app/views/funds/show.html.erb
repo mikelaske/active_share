@@ -8,6 +8,9 @@
       <dt>Active Share</dt>
       <dd><%= @fund.score %></dd>
 
+      <dt>Group Name</dt>
+      <dd><%= @fund.group_name %></dd>
+
       <dt>Ticker</dt>
       <dd><%= @fund.ticker %></dd>
 
@@ -48,11 +51,10 @@
      </div>
 
 
-    <button class="btn btn-success">
-    <a href="/favorites">
+
+    <a href="/create_favorite?fund_id=<%= @fund.id %>&user_id=<%= current_user.id %>" method="post" class="btn btn-success">
     Favorites
     </a>
-    </button>
     </dl>
 
     <div class="btn-group btn-group-justified">

@@ -10,6 +10,8 @@ require 'csv'
 
 file = File.open(Rails.root.join('lib', 'assets', 'funds.csv').to_s).read.scrub
 
+Fund.destroy_all
+
 CSV.parse(file, :headers => true) do |row|
   fund = Fund.new
   fund.name = row["name"]
@@ -20,6 +22,9 @@ CSV.parse(file, :headers => true) do |row|
   fund.equity_percentage = row["equity_percentage"]
   fund.holdings = row["holdings"]
   fund.group_name = row["group_name"]
+
+  group = Group.find_by({ :name => row["group_name"]})
+  fund.group_id = group.id
 
   fund.save
 
