@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   validates :username, :presence => true, :uniqueness => true
 
   has_many :favorites
+
+  has_one :profile
+  accepts_nested_attributes_for :profile
+
 end

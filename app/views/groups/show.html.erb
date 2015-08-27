@@ -29,30 +29,9 @@
       <dt>95th Percentile</dt>
       <dd><%= @group.ninetyfive %></dd>
 
-
-
-      <dt>Funds</dt>
-      <dd>
-        <ol class="list-group">
-        <% Fund.where(:group_id => @group.id).each do |fund| %>
-          <li class="list-group-item">
-            <%= fund.name %>:  <%= fund.score %>
-          </li>
-        <% end %>
-        </ol>
-      </dd>
-    </dl>
-
     <div class="btn-group btn-group-justified">
-      <a href="/groups" class="btn btn-primary">
-        Back
-      </a>
-      <a href="/groups/<%= @group.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_group/<%= @group.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+      <a href="/funds/<%= @group.id %>" class="btn btn-primary">List of Funds</a>
+      <a href="/groups" class="btn btn-primary">Back</a>
     </div>
   </div>
 </div>
