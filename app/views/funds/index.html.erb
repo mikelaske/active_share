@@ -6,23 +6,21 @@
 
 <body>
 <div class="page-header">
-  <h1>
-    Funds
-  </h1>
+  <h1>Funds</h1>
 </div>
 
 <!-- Group Selection -->
   <div class="form-group">
-    <label for="group_name" class="col-sm-1 control-label">
-      Group
+    <label for="group_name" class="control-label">
+    Group
     </label>
-    <div class="col-sm-3">
-    <%= select_tag(:group_name, options_from_collection_for_select(Group.all, :id, :name, @group_name), :class => "form-control") %>
+    <div class="form-group">
+    <%= select_tag(:group_id, options_from_collection_for_select(Group.all, :id, :name, @group_id), :class => "form-control") %>
     </div>
   </div>
 
 <%= search_form_for @q do |f| %>
-  <p class="lead">Narrow the list:</p>
+  <p class="lead text-default">Narrow the list:</p>
 
   <div class="form-group">
     <%= f.label :name_cont, "Fund Names" %>
@@ -39,15 +37,15 @@
     <%= f.text_field :score_lteq, :class => "form-control", :placeholder => "Enter value" %>
   </div>
 
-  <%= f.submit :class => "btn btn-primary btn-block" %>
+  <%= f.submit :class => "btn btn-primary" %>
 
-  <a href="/funds" class="btn btn-default btn-block">Clear filters</a>
+  <a href="/funds">Clear</a>
 <% end %>
 
 <hr />
 
-<div class="row">
-  <div class="spacing col-md-4">
+
+  <div class="row center spacing col-md-4">
     <table id="funds" class="table table-condensed table-striped table-hover">
       <thead>
         <tr>
@@ -56,7 +54,7 @@
         </tr>
       </thead>
       <tbody>
-        <% Fund.where(:group_name => @group_name).each do |fund| %>
+      <% @funds.each do |fund| %>
         <tr>
           <td colspan="3"><a href="/funds/<%= fund.id %>"><%= fund.name %></a></td>
           <td class="description" colspan="1"><%= fund.score %></td>
@@ -66,6 +64,9 @@
       <tfoot></tfoot>
     </table>
   </div>
-</div>
 </body>
 </html>
+
+
+
+

@@ -2,8 +2,7 @@
   <h2><%= @group.name %></h2>
 </div>
 
-<div class="row">
-  <div class="col-md-12">
+<div class="row col-md-12">
     <dl class="dl-horizontal">
       <dt>Average</dt>
       <dd><%= @group.mean %></dd>
@@ -29,9 +28,14 @@
       <dt>95th Percentile</dt>
       <dd><%= @group.ninetyfive %></dd>
 
-    <div class="btn-group btn-group-justified">
-      <a href="/funds/<%= @group.id %>" class="btn btn-primary">List of Funds</a>
-      <a href="/groups" class="btn btn-primary">Back</a>
-    </div>
-  </div>
+      <dt><br /></dt>
+      <dd><br /></dd>
+
+      <ol class="breadcrumb">
+        <li><a href="/groups">Back</a></li>
+        <li><a href="/funds/">List of Funds</a></li>
+      </ol>
+    </dl>
 </div>
+
+

@@ -6,26 +6,53 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-require 'csv'
+# Groups Upload
 
-file = File.open(Rails.root.join('lib', 'assets', 'funds.csv').to_s).read.scrub
+# require 'csv'
 
-Fund.destroy_all
+# file = File.open(Rails.root.join('lib', 'assets', 'groups.csv').to_s).read.scrub
 
-CSV.parse(file, :headers => true) do |row|
-  fund = Fund.new
-  fund.name = row["name"]
-  fund.score = row["score"]
-  fund.ticker = row["ticker"]
-  fund.inception_date = row["inception_date"]
-  fund.portfolio_date = row["portfolio_date"]
-  fund.equity_percentage = row["equity_percentage"]
-  fund.holdings = row["holdings"]
-  fund.group_name = row["group_name"]
+# Group.destroy_all
 
-  group = Group.find_by({ :name => row["group_name"]})
-  fund.group_id = group.id
+# CSV.parse(file, :headers => true) do |row|
+#   group = Group.new
+#   group.name = row["name"]
+#   group.twentyfive = row["twentyfive"]
+#   group.fifty = row["fifty"]
+#   group.five = row["five"]
+#   group.seventyfive = row["seventyfive"]
+#   group.ninetyfive = row["ninetyfive"]
+#   group.mean = row["mean"]
+#   group.median = row["median"]
+#   group.std_dev = row["std_dev"]
 
-  fund.save
+#   group.save
 
-end
+#   end
+
+
+# Groups Upload
+
+# require 'csv'
+
+# file = File.open(Rails.root.join('lib', 'assets', 'funds.csv').to_s).read.scrub
+
+# Fund.destroy_all
+
+# CSV.parse(file, :headers => true) do |row|
+#   fund = Fund.new
+#   fund.name = row["name"]
+#   fund.score = row["score"]
+#   fund.ticker = row["ticker"]
+#   fund.inception_date = row["inception_date"]
+#   fund.portfolio_date = row["portfolio_date"]
+#   fund.equity_percentage = row["equity_percentage"]
+#   fund.holdings = row["holdings"]
+#   fund.group_name = row["group_name"]
+
+#   group = Group.find_by({ :name => row["group_name"]})
+#   fund.group_id = group.id
+
+#   fund.save
+
+#   end

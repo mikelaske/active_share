@@ -41,25 +41,21 @@
 
       <form action="/create_user" method="post" class="form-horizontal" enctype="multipart/form-data">
         <label for="notes" class="control-label">
-          My Notes
+          Add Notes
         </label>
-
-      <div class="col-sm-18">
+        <div class="col-sm-18">
         <input id="notes" input name="notes" type="file" class="form-control">
-      </div>
+        <input type="submit" class="btn btn-danger" value="Add Notes" />
+        </div>
       </form>
      </div>
 
 
-
-    <a href="/create_favorite?fund_id=<%= @fund.id %>&user_id=<%= current_user.id %>" method="post" class="btn btn-success">
-    Favorites
+    <a href="/create_favorite?fund_id=<%= @fund.id %>" method="post" class="btn btn-default btn-sm">
+    Add to Favorites
     </a>
     </dl>
 
-    <div class="btn-group btn-group-justified">
-      <a href="/funds" class="btn btn-primary"></a>
-        Back
-    </div>
+    <a href="/funds" class="btn btn-default btn-sm" data-dismiss="modal" aria-hidden="true">Back</a>
   </div>
 </div>

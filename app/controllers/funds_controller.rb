@@ -33,7 +33,6 @@ class FundsController < ApplicationController
 
   def update
     @fund = Fund.find(params[:id])
-
     @fund.group_id = params[:group_id]
     @fund.score = params[:score]
     @fund.name = params[:name]
