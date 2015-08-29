@@ -9,18 +9,15 @@
   <h1>Funds</h1>
 </div>
 
-<!-- Group Selection -->
-  <div class="form-group">
-    <label for="group_name" class="control-label">
-    Group
-    </label>
-    <div class="form-group">
-    <%= select_tag(:group_id, options_from_collection_for_select(Group.all, :id, :name, @group_id), :class => "form-control") %>
-    </div>
-  </div>
 
 <%= search_form_for @q do |f| %>
-  <p class="lead text-default">Narrow the list:</p>
+
+  <div class="form-group">
+    <%= f.label :group_name_cont, "Group" %>
+    <%= f.text_field :group_name_cont, :class => "form-control", :placeholder => "Enter group" %>
+  </div>
+
+  <h3>Narrow the list:</h3>
 
   <div class="form-group">
     <%= f.label :name_cont, "Fund Names" %>
@@ -45,11 +42,12 @@
 <hr />
 
 
-  <div class="row center spacing col-md-4">
+  <div class="row center spacing col-md-6">
     <table id="funds" class="table table-condensed table-striped table-hover">
       <thead>
         <tr>
           <th colspan="3">Name</th>
+          <th colspan="2">Group</th>
           <th class="description" colspan="1">Active Share</th>
         </tr>
       </thead>
@@ -57,6 +55,7 @@
       <% @funds.each do |fund| %>
         <tr>
           <td colspan="3"><a href="/funds/<%= fund.id %>"><%= fund.name %></a></td>
+          <td colspan="2"><%= fund.group_name %></td>
           <td class="description" colspan="1"><%= fund.score %></td>
         </tr>
       <% end %>

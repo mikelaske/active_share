@@ -15,9 +15,10 @@ class FavoritesController < ApplicationController
     @favorite = Favorite.new
     @favorite.user_id = params[:user_id]
     @favorite.fund_id = params[:fund_id]
+    @favorite.notes = params[:notes]
 
     if @favorite.save
-      redirect_to "/favorites", :notice => "Favorite created successfully."
+      redirect_to :back, :notice => "Favorite created successfully."
     else
       render 'new'
     end
@@ -32,6 +33,7 @@ class FavoritesController < ApplicationController
 
     @favorite.user_id = params[:user_id]
     @favorite.fund_id = params[:fund_id]
+    @user.username = params[:username]
 
     if @favorite.save
       redirect_to "/favorites", :notice => "Favorite updated successfully."

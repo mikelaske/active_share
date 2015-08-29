@@ -26,36 +26,27 @@
       <dt>Holdings</dt>
       <dd><%= @fund.holdings %></dd>
 
+      <dt>Notes</dt>
+      <dd><%= @fund.notes %></dd>
+
    <!-- Label and input for notes -->
     <div class="form-group">
-
+      <form action="/update_fund/:id" method="post" class="form-horizontal" enctype="multipart/form-data">
       <label for="notes" class="control-label">
         My Notes
       </label>
 
       <textarea id="notes" name="notes" placeholder="Notes" class="form-control" rows="3"><%= @fund.notes %></textarea>
+      <h2></h2>
+      <input type="submit" class="btn btn-danger" value="Add Notes" />
+      </form>
     </div>
 
-      <!-- Upload notes -->
-      <div class="form-group">
-
-      <form action="/create_user" method="post" class="form-horizontal" enctype="multipart/form-data">
-        <label for="notes" class="control-label">
-          Add Notes
-        </label>
-        <div class="col-sm-18">
-        <input id="notes" input name="notes" type="file" class="form-control">
-        <input type="submit" class="btn btn-danger" value="Add Notes" />
-        </div>
-      </form>
-     </div>
-
-
-    <a href="/create_favorite?fund_id=<%= @fund.id %>" method="post" class="btn btn-default btn-sm">
+    <a href="/favorites" method="post" class="btn btn-danger btn-sm">
     Add to Favorites
     </a>
     </dl>
 
-    <a href="/funds" class="btn btn-default btn-sm" data-dismiss="modal" aria-hidden="true">Back</a>
+    <a href="/funds" class="btn btn-danger btn-sm" data-dismiss="modal" aria-hidden="true">Back</a>
   </div>
 </div>

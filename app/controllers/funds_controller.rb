@@ -7,6 +7,16 @@ class FundsController < ApplicationController
   def show
     @fund = Fund.find(params[:id])
     @fund.notes = params[:notes]
+
+    @favorite = Favorite.new
+    @favorite.user_id = params[:user_id]
+    @favorite.fund_id = params[:fund_id]
+
+    if @favorite.save
+      redirect_to "/favorites", :notice => "Favorite created successfully."
+    else
+      render 'show'
+    end
   end
 
   def new
@@ -14,16 +24,13 @@ class FundsController < ApplicationController
   end
 
   def create
-    @fund = Fund.new
-    @fund.group_id = params[:group_id]
-    @fund.score = params[:score]
-    @fund.name = params[:name]
+    @fund = Fund.find(params[:id])
     @fund.notes = params[:notes]
 
     if @fund.save
-      redirect_to "/funds", :notice => "Fund created successfully."
+      redirect_to "/funds", :notice => "Notes updated successfully."
     else
-      render 'new'
+      render 'show'
     end
   end
 
@@ -33,14 +40,11 @@ class FundsController < ApplicationController
 
   def update
     @fund = Fund.find(params[:id])
-    @fund.group_id = params[:group_id]
-    @fund.score = params[:score]
-    @fund.name = params[:name]
 
     if @fund.save
-      redirect_to "/funds", :notice => "Fund updated successfully."
+      redirect_to "/funds", :notice => "Notes updated successfully."
     else
-      render 'edit'
+      render 'show'
     end
   end
 

@@ -1,13 +1,3 @@
-<!-- Validation failure messages -->
-<% if @fund.errors.any? %>
-  <% @fund.errors.full_messages.each do |message| %>
-    <div class="alert alert-dismissable alert-danger">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <%= message %>
-    </div>
-  <% end %>
-<% end %>
-
 <div class="page-header">
   <h3>Add Fund</h3>
 </div>
